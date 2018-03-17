@@ -4,5 +4,5 @@ const prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  API: "'http://legis.senado.gov.br/dadosabertos/senador/lista/atual.json'"
+  API: "'http://legis.senado.gov.br/dadosabertos'"
 })

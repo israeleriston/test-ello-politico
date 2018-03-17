@@ -3,11 +3,11 @@
 import Vue from 'vue'
 import Root from './Root'
 import router from './router'
-import Http from './plugglables/http'
+import http from './plugglables/http'
 import '../node_modules/bulma/css/bulma.css'
 import '../node_modules/bulmaswatch/minty/bulmaswatch.min.css'
 
-Vue.use(Http)
+Vue.use(http)
 
 Vue.config.productionTip = false
 

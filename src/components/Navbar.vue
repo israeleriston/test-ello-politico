@@ -4,7 +4,7 @@
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item has-text-weight-semibold is-active" href="../">
-          Parlamentares vigentes
+          Parlamentares em Exercício
         </a>
       </div>
     </div>
