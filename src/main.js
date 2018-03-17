@@ -6,6 +6,7 @@ import router from './router'
 import http from './plugglables/http'
 import '../node_modules/bulma/css/bulma.css'
 import '../node_modules/bulmaswatch/minty/bulmaswatch.min.css'
+import 'font-awesome/css/font-awesome.css'
 
 Vue.use(http)
 

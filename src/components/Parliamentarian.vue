@@ -8,17 +8,23 @@
           <div v-for="p in parliamentarians" :key="p.id" class="column is-3">
             <div class="card">
             <div class="card-image">
-              <figure class="image ">
+              <figure class="image is-1by1">
                   <img :src="p.IdentificacaoParlamentar.UrlFotoParlamentar">
               </figure>
             </div>
-            <div class="card-content">
-              <div class="content">
-                {{ p.IdentificacaoParlamentar.NomeParlamentar }} -
+            <div class="card-content ">
+              <p class="content is-marginless">
+                {{ p.IdentificacaoParlamentar.NomeParlamentar }}
+              </p>
+              <p class="content">
                 {{ p.IdentificacaoParlamentar.SiglaPartidoParlamentar }} -
                 {{ p.IdentificacaoParlamentar.UfParlamentar }}
-              </div>
+              </p>
             </div>
+            <footer class="card-footer">
+              <a href="#" class="card-footer-item"><i class="fas fa-edit"></i>Editar</a>
+              <a href="#" class="card-footer-item"><i class="fas fa-eye"></i>Informações</a>
+            </footer>
             </div>
           </div>
         </div>
