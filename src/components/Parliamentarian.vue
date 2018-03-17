@@ -1,7 +1,7 @@
 <template>
 <div>
   <navbar></navbar>
-  <section class="hero is-success is-fullheight">
+  <section class="hero is-success is-fullheight has-5-mt">
     <div class="hero-body">
       <div class="container has-text-centered">
         <div class="columns is-multiline">
@@ -9,7 +9,9 @@
             <div class="card">
             <div class="card-image">
               <figure class="image is-1by1">
-                  <img :src="p.IdentificacaoParlamentar.UrlFotoParlamentar">
+                  <a @click="activateModal(p)">
+                    <img :src="p.IdentificacaoParlamentar.UrlFotoParlamentar" >
+                  </a>
               </figure>
             </div>
             <div class="card-content ">
@@ -21,28 +23,27 @@
                 {{ p.IdentificacaoParlamentar.UfParlamentar }}
               </p>
             </div>
-            <footer class="card-footer">
-              <a href="#" class="card-footer-item"><i class="fas fa-edit"></i>Editar</a>
-              <a href="#" class="card-footer-item"><i class="fas fa-eye"></i>Informações</a>
-            </footer>
             </div>
           </div>
         </div>
       </div>
+      <modal :active.sync="activeModal" @closed="closedModal" :content="parliamentarian"></modal>
     </div>
   </section>
 </div>
 </template>
 <script>
+import Modal from './ParliamentarianModal'
 import Navbar from './Navbar'
 export default {
   name: 'Parliamentarian-view',
   components: {
-    Navbar
+    Navbar, Modal
   },
   data: () => ({
     parliamentarians: [],
-    parliamentarian: {}
+    parliamentarian: {},
+    activeModal: false
   }),
   methods: {
     loadAll () {
@@ -51,6 +52,15 @@ export default {
           console.log(' req ', req)
           this.parliamentarians = req.data.ListaParlamentarEmExercicio.Parlamentares.Parlamentar
         })
+    },
+
+    closedModal (value) {
+      this.activeModal = value
+    },
+
+    activateModal (p) {
+      this.activeModal = true
+      this.parliamentarian = p
     }
   },
 

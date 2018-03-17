@@ -4,7 +4,7 @@
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item has-text-weight-semibold is-active" href="../">
-          Parlamentares em Exercício
+          Senadores em Exercício
         </a>
       </div>
     </div>

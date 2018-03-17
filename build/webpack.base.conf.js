@@ -74,19 +74,6 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      },
-      {
-        test: /\.svg$/,
-        loader: 'vue-svg-loader', // `vue-svg` for webpack 1.x
-        options: {
-          // optional [svgo](https://github.com/svg/svgo) options
-          svgo: {
-            plugins: [
-              { removeDoctype: true },
-              { removeComments: true }
-            ]
-          }
-        }
       }
     ]
   },
