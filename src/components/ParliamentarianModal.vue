@@ -20,133 +20,39 @@
             </div>
           </div>
           <div class="column is-7">
-            <div class="field is-horizontal">
-            <div class="field-label is-small">
-              <label class="label">Código</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <p class="control">
-                  <input
-                  class="input is-small"
-                  type="text"
-                  v-model="content.IdentificacaoParlamentar.CodigoParlamentar" :disabled="!edited">
-                </p>
-              </div>
-            </div>
-          </div>
 
-                   <div class="field is-horizontal">
-            <div class="field-label is-small">
-              <label class="label">Email</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <p class="control">
-                  <input
-                  class="input is-small"
-                  type="email"
-                  v-model="content.IdentificacaoParlamentar.EmailParlamentar" :disabled="!edited">
-                </p>
-              </div>
-            </div>
-          </div>
+            <b-field label="Código" :horizontal="true" class="field-label is-small">
+            <b-input v-model="content.IdentificacaoParlamentar.CodigoParlamentar" :disabled="!edited"></b-input>
+            </b-field>
 
-                   <div class="field is-horizontal">
-            <div class="field-label is-small">
-              <label class="label">Tratamento</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <p class="control">
-                  <input
-                  class="input is-small"
-                  type="text"
-                  v-model="content.IdentificacaoParlamentar.FormaTratamento" :disabled="!edited">
-                </p>
-              </div>
-            </div>
-          </div>
+            <b-field label="Email" :horizontal="true" class="field-label is-small">
+            <b-input type="email" v-model="content.IdentificacaoParlamentar.EmailParlamentar" :disabled="!edited"></b-input>
+            </b-field>
 
-                   <div class="field is-horizontal">
-            <div class="field-label is-small">
-              <label class="label">Nome</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <p class="control">
-                  <input
-                  class="input is-small"
-                  type="text"
-                  v-model="content.IdentificacaoParlamentar.NomeCompletoParlamentar" :disabled="!edited">
-                </p>
-              </div>
-            </div>
-          </div>
+            <b-field label="Tratamento" :horizontal="true" class="field-label is-small">
+            <b-input  v-model="content.IdentificacaoParlamentar.FormaTratamento" :disabled="!edited"></b-input>
+            </b-field>
 
-                   <div class="field is-horizontal">
-            <div class="field-label is-small">
-              <label class="label">Sexo</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <p class="control">
-                  <input
-                  class="input is-small"
-                  type="text"
-                  v-model="content.IdentificacaoParlamentar.SexoParlamentar" :disabled="!edited">
-                </p>
-              </div>
-            </div>
-          </div>
+            <b-field label="Nome" :horizontal="true" class="field-label is-small">
+            <b-input  v-model="content.IdentificacaoParlamentar.NomeCompletoParlamentar" :disabled="!edited"></b-input>
+            </b-field>
 
-                   <div class="field is-horizontal">
-            <div class="field-label is-small">
-              <label class="label">Partido</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <p class="control">
-                  <input
-                  class="input is-small"
-                  type="text"
-                  v-model="content.IdentificacaoParlamentar.SiglaPartidoParlamentar" :disabled="!edited">
-                </p>
-              </div>
-            </div>
-          </div>
+            <b-field label="Sexo" :horizontal="true" class="field-label is-small">
+            <b-input  v-model="content.IdentificacaoParlamentar.SexoParlamentar" :disabled="!edited"></b-input>
+            </b-field>
 
-                   <div class="field is-horizontal">
-            <div class="field-label is-small">
-              <label class="label">UF</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <p class="control">
-                  <input
-                  class="input is-small"
-                  type="text"
-                  v-model="content.IdentificacaoParlamentar.UfParlamentar" :disabled="!edited">
-                </p>
-              </div>
-            </div>
-          </div>
+            <b-field label="Partido" :horizontal="true" class="field-label is-small">
+            <b-input  v-model="content.IdentificacaoParlamentar.SiglaPartidoParlamentar" :disabled="!edited"></b-input>
+            </b-field>
 
-                   <div class="field is-horizontal">
-            <div class="field-label is-small">
-              <label class="label">Página</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <p class="control">
-                  <input
-                  class="input is-small"
-                  type="text"
-                  v-model="content.IdentificacaoParlamentar.UrlPaginaParlamentar" :disabled="!edited">
-                </p>
-              </div>
-            </div>
-          </div>
+            <b-field label="UF" :horizontal="true" class="field-label is-small">
+            <b-input  v-model="content.IdentificacaoParlamentar.UfParlamentar" :disabled="!edited"></b-input>
+            </b-field>
+
+            <b-field label="Página" :horizontal="true" class="field-label is-small">
+            <b-input  v-model="content.IdentificacaoParlamentar.UrlPaginaParlamentar" :disabled="!edited"></b-input>
+            </b-field>
+
           </div>
         </div>
       </section>
