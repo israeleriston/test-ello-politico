@@ -6,7 +6,7 @@
       <section class="modal-card-body">
         <div class="field has-text-right">
             <input id="checkbox" type="checkbox"
-            class="switch is-rounded" checked="checked">
+            class="switch is-rounded" v-model="edited">
             <label for="checkbox">Editar Informações</label>
         </div>
         <div class="columns">
@@ -14,7 +14,7 @@
             <div class="card">
               <div class="card-image">
                   <figure class="image is-1by1">
-                    <img :src="content.IdentificacaoParlamentar.UrlFotoParlamentar">
+                    <img :src="content.IdentificacaoParlamentar.UrlFotoParlamentar" :disabled="!edited">
                 </figure>
               </div>
             </div>
@@ -30,7 +30,7 @@
                   <input
                   class="input is-small"
                   type="text"
-                  v-model="content.IdentificacaoParlamentar.CodigoParlamentar">
+                  v-model="content.IdentificacaoParlamentar.CodigoParlamentar" :disabled="!edited">
                 </p>
               </div>
             </div>
@@ -46,7 +46,7 @@
                   <input
                   class="input is-small"
                   type="email"
-                  v-model="content.IdentificacaoParlamentar.EmailParlamentar">
+                  v-model="content.IdentificacaoParlamentar.EmailParlamentar" :disabled="!edited">
                 </p>
               </div>
             </div>
@@ -62,7 +62,7 @@
                   <input
                   class="input is-small"
                   type="text"
-                  v-model="content.IdentificacaoParlamentar.FormaTratamento">
+                  v-model="content.IdentificacaoParlamentar.FormaTratamento" :disabled="!edited">
                 </p>
               </div>
             </div>
@@ -78,7 +78,7 @@
                   <input
                   class="input is-small"
                   type="text"
-                  v-model="content.IdentificacaoParlamentar.NomeCompletoParlamentar">
+                  v-model="content.IdentificacaoParlamentar.NomeCompletoParlamentar" :disabled="!edited">
                 </p>
               </div>
             </div>
@@ -94,7 +94,7 @@
                   <input
                   class="input is-small"
                   type="text"
-                  v-model="content.IdentificacaoParlamentar.SexoParlamentar">
+                  v-model="content.IdentificacaoParlamentar.SexoParlamentar" :disabled="!edited">
                 </p>
               </div>
             </div>
@@ -110,7 +110,7 @@
                   <input
                   class="input is-small"
                   type="text"
-                  v-model="content.IdentificacaoParlamentar.SiglaPartidoParlamentar">
+                  v-model="content.IdentificacaoParlamentar.SiglaPartidoParlamentar" :disabled="!edited">
                 </p>
               </div>
             </div>
@@ -126,7 +126,7 @@
                   <input
                   class="input is-small"
                   type="text"
-                  v-model="content.IdentificacaoParlamentar.UfParlamentar">
+                  v-model="content.IdentificacaoParlamentar.UfParlamentar" :disabled="!edited">
                 </p>
               </div>
             </div>
@@ -142,7 +142,7 @@
                   <input
                   class="input is-small"
                   type="text"
-                  v-model="content.IdentificacaoParlamentar.UrlPaginaParlamentar">
+                  v-model="content.IdentificacaoParlamentar.UrlPaginaParlamentar" :disabled="!edited">
                 </p>
               </div>
             </div>
@@ -152,8 +152,8 @@
       </section>
     </div>
     <footer class="modal-card-foot">
-      <button class="button is-success">Salvar</button>
-      <button class="button" @click="closeModal">Cancelar</button>
+      <button class="button is-success" @click="save" :disabled="!edited">Salvar</button>
+      <button class="button" @click="closeModal" >Cancelar</button>
     </footer>
   </div>
 </div>
@@ -177,13 +177,22 @@ export default {
   }),
   methods: {
     closeModal () {
+      this.edited = false
       this.$emit('closed', false)
+    },
+    save () {
+      const selected = Object.assign({}, this.content)
+      this.$emit('saved', selected)
+      this.closeModal()
     }
   }
 
 }
 </script>
-
 <style>
+.input {
+    border-radius: 4px;
+    font-size: .75rem;
+}
 
 </style>

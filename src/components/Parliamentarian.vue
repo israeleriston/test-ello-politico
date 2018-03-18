@@ -27,7 +27,7 @@
           </div>
         </div>
       </div>
-      <modal :active.sync="activeModal" @closed="closedModal" :content="parliamentarian"></modal>
+      <modal :active="activeModal" @closed="closedModal" @saved="saved" :content="parliamentarian" ></modal>
     </div>
   </section>
 </div>
@@ -35,6 +35,7 @@
 <script>
 import Modal from './ParliamentarianModal'
 import Navbar from './Navbar'
+import { default as _ } from 'lodash'
 export default {
   name: 'Parliamentarian-view',
   components: {
@@ -43,13 +44,14 @@ export default {
   data: () => ({
     parliamentarians: [],
     parliamentarian: {},
+    position: 0,
     activeModal: false
   }),
   methods: {
     loadAll () {
       this.$http.get('http://legis.senado.gov.br/dadosabertos/senador/lista/atual.json')
         .then(req => {
-          console.log(' req ', req)
+          console.log('req ', req)
           this.parliamentarians = req.data.ListaParlamentarEmExercicio.Parlamentares.Parlamentar
         })
     },
@@ -58,9 +60,17 @@ export default {
       this.activeModal = value
     },
 
+    saved (obj) {
+      const index = this.position
+      this.parliamentarians[index] = obj
+      this.parliamentarian = {}
+    },
+
     activateModal (p) {
       this.activeModal = true
-      this.parliamentarian = p
+      const index = this.parliamentarians.findIndex(par => par.IdentificacaoParlamentar.CodigoParlamentar === p.IdentificacaoParlamentar.CodigoParlamentar)
+      this.parliamentarian = _.cloneDeep(p)
+      this.position = index
     }
   },
 

@@ -4,12 +4,15 @@ import Vue from 'vue'
 import Root from './Root'
 import router from './router'
 import http from './plugglables/http'
-import '../node_modules/bulma/css/bulma.css'
-import '../node_modules/bulmaswatch/minty/bulmaswatch.min.css'
-import '../node_modules/bulma-switch/dist/bulma-switch.min.css'
-import '../node_modules/font-awesome/css/font-awesome.css'
+import Buefy from 'buefy'
+import 'buefy/lib/buefy.css'
+import 'bulma/css/bulma.css'
+import 'bulmaswatch/minty/bulmaswatch.min.css'
+import 'bulma-switch/dist/bulma-switch.min.css'
+import 'font-awesome/css/font-awesome.css'
 
 Vue.use(http)
+Vue.use(Buefy)
 
 Vue.config.productionTip = false
 
